@@ -122,7 +122,6 @@ def welcome_screen(conn):
 				if (conn.recv(bufsize).decode() == "SUCC"):
 					enc_pvkey= conn.recv(bufsize)
 					pvkey = decryptKey(enc_pvkey,cid_pwdKey(cid, gid, pwd))
-					print(pvkey)
 					print("Login success");
 					private_key = RSA.importKey(pvkey)
 					login_screen(cid, gid, pwd, private_key)
